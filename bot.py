@@ -129,7 +129,7 @@ def text(update, context):
     end = '&feature=youtu.be'
     print('\n')
     sol=str((ext.split(start))[1].split(end)[0])
-    mes = "https://img.youtube.com/vi/"+sol+"maxresdefault.jpg"
+    mes = "https://img.youtube.com/vi/"+sol+"/maxresdefault.jpg"
     print(mes)
     
     global filesname
