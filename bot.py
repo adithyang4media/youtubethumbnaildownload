@@ -160,6 +160,7 @@ def text(update, context):
               
 def urlup(update, context):
     mes = update.message.text
+    context.bot.send_photo(chat_id=update.effective_chat.id, photo=open(filesname,'rb'))
     context.bot.sendDocument(chat_id=update.effective_chat.id, document=open(filesname, 'rb'), filename=mes)
     os.remove(filesname)
     return ConversationHandler.END
