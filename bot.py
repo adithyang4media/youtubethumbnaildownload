@@ -152,7 +152,7 @@ def text(update, context):
                filename=mes.rsplit('/', 1)[1]
                filesname=filename[-10:]
                url = mes
-               r = requests.get(url, allow_redirects=True)
+               r = requests.get(url, allow_redirects=True, headers = {'User-agent': 'your bot 0.1'})
 
                open(filesname, 'wb').write(r.content)
                update.message.reply_text("Please enter a file name with extension")
@@ -161,6 +161,7 @@ def text(update, context):
 def urlup(update, context):
     mes = update.message.text
     context.bot.sendDocument(chat_id=update.effective_chat.id, document=open(filesname, 'rb'), filename=mes)
+    context.bot.send_image(chat_id=update.effective_chat.id, document=open(filesname, 'rb')
     os.remove(filesname)
     return ConversationHandler.END
 
